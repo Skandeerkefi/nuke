@@ -70,7 +70,7 @@ function LeaderboardPage() {
 				<div className='flex flex-col items-center justify-between gap-4 mb-10 sm:flex-row'>
 					<div className='flex items-center gap-3 text-[#AF2D03]'>
 						<Crown className='w-7 h-7' />
-						<h1 className='text-3xl font-extrabold tracking-tight'>
+						<h1 className='text-3xl font-extrabold tracNuke-tight'>
 							Rainbet Monthly Leaderboard
 						</h1>
 					</div>
@@ -88,8 +88,8 @@ function LeaderboardPage() {
 							</TooltipTrigger>
 							<TooltipContent className='max-w-xs bg-[#191F3B] text-white border border-[#EA6D0C] shadow-lg rounded-md p-3 text-sm'>
 								The leaderboard ranks players based on their total wager amount
-								using the King affiliate code on Rainbet. Higher wagers
-								result in a better ranking.
+								using the Nuke affiliate code on Rainbet. Higher wagers
+								result in a better ranNuke.
 							</TooltipContent>
 						</Tooltip>
 					</TooltipProvider>
@@ -99,7 +99,7 @@ function LeaderboardPage() {
 				<div className='p-6 mb-10 rounded-lg bg-gray-300/20 border border-[#AF2D03] text-white shadow-md'>
 					<p className='mb-4 leading-relaxed text-gray-100'>
 						Use affiliate code{" "}
-						<span className='font-semibold text-[#AF2D03]'>King</span> on{" "}
+						<span className='font-semibold text-[#AF2D03]'>Nuke</span> on{" "}
 						<a
 							href='https://rainbet.com'
 							target='_blank'
@@ -115,7 +115,7 @@ function LeaderboardPage() {
 						<span className='font-semibold text-[#AF2D03]'>
 							Affiliate Code:
 						</span>
-						<span className='font-bold text-white'>King</span>
+						<span className='font-bold text-white'>Nuke</span>
 					</div>
 				</div>
 
@@ -133,7 +133,7 @@ function LeaderboardPage() {
 
 				{/* Reward Cards */}
 				<section className='mb-12'>
-					<h2 className='mb-8 text-3xl font-bold text-center text-[#AF2D03] tracking-wide'>
+					<h2 className='mb-8 text-3xl font-bold text-center text-[#AF2D03] tracNuke-wide'>
 						Top Players
 					</h2>
 					<div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
@@ -250,7 +250,7 @@ function RewardCard({
 			<div className={`h-2 bg-gradient-to-r ${backgroundColor}`} />
 			<div className='flex flex-col items-center flex-grow p-6 text-center'>
 				<div className='mb-5'>{icon}</div>
-				<h3 className='mb-3 text-xl font-bold tracking-wide'>{position}</h3>
+				<h3 className='mb-3 text-xl font-bold tracNuke-wide'>{position}</h3>
 
 				{player ? (
 					<>

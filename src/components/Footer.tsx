@@ -12,9 +12,9 @@ export function Footer() {
 				<div className='grid grid-cols-1 gap-10 md:grid-cols-3'>
 					{/* About */}
 					<div>
-						<h3 className='mb-3 text-lg font-bold text-[#fffcf5]'>King</h3>
+						<h3 className='mb-3 text-lg font-bold text-[#fffcf5]'>Nuke</h3>
 						<p className='text-sm text-[#fffcf5]/70'>
-							Join King&apos;s community for exciting gambling streams,
+							Join Nuke&apos;s community for exciting gambling streams,
 							giveaways, and more. Use affiliate code{" "}
 							<span className='font-semibold text-[#c63427]'>DonkeyG</span> on
 							Roobet.
@@ -48,7 +48,7 @@ export function Footer() {
 						<div className='flex gap-3'>
 							{[
 								{
-									href: "https://kick.com/King",
+									href: "https://kick.com/Nuke",
 									icon: <FaKickstarterK className='w-5 h-5' />,
 								},
 								{
@@ -56,11 +56,11 @@ export function Footer() {
 									icon: <FaXTwitter className='w-5 h-5' />,
 								},
 								{
-									href: "https://discord.gg/kingonkick",
+									href: "https://discord.gg/Nukeonkick",
 									icon: <FaDiscord className='w-5 h-5' />,
 								},
 								{
-									href: "https://www.instagram.com/kingonkick",
+									href: "https://www.instagram.com/Nukeonkick",
 									icon: <FaInstagram className='w-5 h-5' />,
 								},
 							].map(({ href, icon }, i) => (
@@ -81,7 +81,7 @@ export function Footer() {
 				{/* Bottom Bar */}
 				<div className='pt-6 mt-12 border-t border-[#1a1a1d] text-center text-sm text-[#fffcf5]/60'>
 					<p className='flex flex-wrap items-center justify-center gap-1'>
-						© {currentYear} King. Made with
+						© {currentYear} Nuke. Made with
 						<Heart className='w-3 h-3 mx-1 text-[#c63427]' />
 						for the community by{" "}
 						<a

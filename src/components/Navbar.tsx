@@ -19,7 +19,7 @@ export function Navbar() {
 	useEffect(() => {
 		const fetchLiveStatus = async () => {
 			try {
-				const res = await fetch("https://kick.com/api/v2/channels/King");
+				const res = await fetch("https://kick.com/api/v2/channels/Bomber");
 				const data = await res.json();
 				if (data.livestream) {
 					setIsLive(true);
@@ -40,7 +40,7 @@ export function Navbar() {
 	const menuItems = [
 		{ path: "/", name: "Home", icon: <Dices className='w-5 h-5' /> },
 		{
-			path: "/leaderboards",
+			path: "/chicken",
 			name: "Leaderboard",
 			icon: <Crown className='w-5 h-5' />,
 		},
@@ -65,11 +65,11 @@ export function Navbar() {
 					<Link to='/' className='flex items-center space-x-3 select-none'>
 						<img
 							src='https://i.ibb.co/KcLcdTJs/logo.png'
-							alt='King Logo'
+							alt='Bomber Logo'
 							className='w-12 h-12 rounded-full border-2 border-[#ff0012] shadow-[0_0_15px_rgba(255,0,18,0.7)] object-cover'
 						/>
-						<span className='text-3xl font-bold italic tracking-wider text-[#ff0012] [text-shadow:0_0_12px_rgba(255,0,18,0.7)]'>
-							KI<span className='text-[#fefffe]'>NG</span>
+						<span className='text-3xl font-bold italic tracBomber-wider text-[#ff0012] [text-shadow:0_0_12px_rgba(255,0,18,0.7)]'>
+							Bom<span className='text-[#fefffe]'>Ber</span>
 						</span>
 					</Link>
 

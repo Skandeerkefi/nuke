@@ -83,7 +83,7 @@ export default function SlotOverlay() {
 			>
 				{/* Header */}
 				<div
-					className='py-3 text-lg font-bold tracking-wide text-center text-white rounded-t-3xl'
+					className='py-3 text-lg font-bold text-center text-white tracNuke-wide rounded-t-3xl'
 					style={{
 						background: "linear-gradient(90deg, #8F00FF, #00F0FF)",
 						color: "#fff",
