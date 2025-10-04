@@ -28,7 +28,7 @@ export function GraphicalBackground() {
 			tshirtImages.push(img);
 		});
 
-		// Particles for glowing effect
+		// Particles (glowing dots)
 		interface Particle {
 			x: number;
 			y: number;
@@ -36,32 +36,30 @@ export function GraphicalBackground() {
 			speedX: number;
 			speedY: number;
 			color: string;
-			alpha: number;
 			pulse: number;
 		}
 
 		const particles: Particle[] = [];
-		const particleCount = 80;
-		const colors = ["#f50b2b", "#ee5b76", "#fffefc", "#120a2f"]; // Neon palette
-
-		for (let i = 0; i < particleCount; i++) {
+		const colors = ["#fc0c2b", "#0c0b30", "#ffffff", "#fff66d"];
+		for (let i = 0; i < 80; i++) {
 			const color = colors[Math.floor(Math.random() * colors.length)];
 			particles.push({
 				x: Math.random() * canvas.width,
 				y: Math.random() * canvas.height,
 				size: Math.random() * 3 + 2,
-				speedX: (Math.random() - 0.5) * 0.4,
-				speedY: (Math.random() - 0.5) * 0.4,
+				speedX: (Math.random() - 0.5) * 0.2,
+				speedY: (Math.random() - 0.5) * 0.2,
 				color,
-				alpha: Math.random() * 0.5 + 0.3,
 				pulse: Math.random() * Math.PI * 2,
 			});
 		}
 
-		// Floating T-shirts
+		// Floating T-shirts with smooth sine/cos motion
 		interface FloatingItem {
 			x: number;
 			y: number;
+			baseX: number;
+			baseY: number;
 			size: number;
 			speedX: number;
 			speedY: number;
@@ -70,27 +68,61 @@ export function GraphicalBackground() {
 			layer: number;
 			opacity: number;
 			img: HTMLImageElement;
+			offsetX: number;
+			offsetY: number;
 		}
 
 		const shirts: FloatingItem[] = [];
-		const shirtCount = 20;
-		for (let i = 0; i < shirtCount; i++) {
+		for (let i = 0; i < 20; i++) {
 			const layer = Math.floor(Math.random() * 3);
 			const baseSize = [60, 100, 140][layer];
 			const img = tshirtImages[Math.floor(Math.random() * tshirtImages.length)];
+			const baseX = Math.random() * canvas.width;
+			const baseY = Math.random() * canvas.height;
 			shirts.push({
-				x: Math.random() * canvas.width,
-				y: Math.random() * canvas.height,
+				x: baseX,
+				y: baseY,
+				baseX,
+				baseY,
 				size: baseSize + Math.random() * 50,
-				speedX: (Math.random() - 0.5) * (0.2 + layer * 0.1),
-				speedY: (Math.random() - 0.5) * (0.2 + layer * 0.1),
+				speedX: (Math.random() - 0.5) * 0.05,
+				speedY: (Math.random() - 0.5) * 0.05,
 				rotation: Math.random() * Math.PI * 2,
-				rotationSpeed: (Math.random() - 0.5) * 0.01,
+				rotationSpeed: (Math.random() - 0.5) * 0.002,
 				layer,
-				opacity: 0.4 + layer * 0.3,
+				opacity: 0.5 + layer * 0.3,
 				img,
+				offsetX: Math.random() * 50,
+				offsetY: Math.random() * 30,
 			});
 		}
+
+		// Lightning strikes
+		interface Lightning {
+			segments: { x: number; y: number }[];
+			alpha: number;
+			life: number;
+		}
+		const lightnings: Lightning[] = [];
+
+		const generateLightning = () => {
+			const strikes = 1 + Math.floor(Math.random() * 3);
+			for (let s = 0; s < strikes; s++) {
+				const startX = Math.random() * canvas.width;
+				const segments = [];
+				const segmentCount = 10 + Math.floor(Math.random() * 5);
+				let x = startX;
+				let y = 0;
+				for (let i = 0; i < segmentCount; i++) {
+					x += (Math.random() - 0.5) * 50;
+					y += canvas.height / segmentCount;
+					segments.push({ x, y });
+				}
+				lightnings.push({ segments, alpha: 1, life: 5 + Math.random() * 5 });
+			}
+			setTimeout(generateLightning, 1000 + Math.random() * 2000);
+		};
+		generateLightning();
 
 		let time = 0;
 		let animationFrameId: number;
@@ -98,7 +130,7 @@ export function GraphicalBackground() {
 		const render = () => {
 			time += 0.02;
 
-			// Dark neon background
+			// Dark radial background
 			const gradient = ctx.createRadialGradient(
 				canvas.width / 2,
 				canvas.height / 2,
@@ -107,58 +139,46 @@ export function GraphicalBackground() {
 				canvas.height / 2,
 				canvas.width
 			);
-			gradient.addColorStop(0, "#1a0000");
-			gradient.addColorStop(1, "#000101");
+			gradient.addColorStop(0, "#0c0b30");
+			gradient.addColorStop(1, "#000000");
 			ctx.fillStyle = gradient;
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-			// Neon streaks
-			for (let i = 0; i < 4; i++) {
-				ctx.strokeStyle = `rgba(255,${50 + i * 50},255,${0.03 + i * 0.02})`;
-				ctx.lineWidth = 1 + i;
-				ctx.beginPath();
-				ctx.moveTo((time * 40 + i * 200) % canvas.width, 0);
-				ctx.lineTo((time * 40 + i * 200 + 400) % canvas.width, canvas.height);
-				ctx.stroke();
-			}
-
-			// Particles
+			// Glowing particles
 			particles.forEach((p) => {
 				p.pulse += 0.05;
 				const glow = Math.sin(p.pulse) * 0.5 + 0.5;
 				p.x += p.speedX;
 				p.y += p.speedY;
-
 				if (p.x > canvas.width) p.x = 0;
 				if (p.x < 0) p.x = canvas.width;
 				if (p.y > canvas.height) p.y = 0;
 				if (p.y < 0) p.y = canvas.height;
 
 				ctx.beginPath();
-				ctx.arc(p.x, p.y, p.size + glow * 1.5, 0, Math.PI * 2);
+				ctx.arc(p.x, p.y, p.size + glow, 0, Math.PI * 2);
 				ctx.fillStyle = p.color;
 				ctx.shadowBlur = 15 * glow;
 				ctx.shadowColor = p.color;
 				ctx.fill();
 			});
 
-			// Floating T-shirts
+			// Floating T-shirts with smooth drift
 			shirts.forEach((shirt, idx) => {
-				shirt.x +=
-					shirt.speedX + Math.sin(time + idx) * 0.3 * (shirt.layer + 1);
-				shirt.y +=
-					shirt.speedY + Math.cos(time + idx) * 0.3 * (shirt.layer + 1);
+				shirt.x = shirt.baseX + Math.sin(time + idx) * shirt.offsetX;
+				shirt.y = shirt.baseY + Math.cos(time + idx) * shirt.offsetY;
 				shirt.rotation += shirt.rotationSpeed;
 
-				if (shirt.x > canvas.width) shirt.x = -shirt.size;
-				if (shirt.x < -shirt.size) shirt.x = canvas.width;
-				if (shirt.y > canvas.height) shirt.y = -shirt.size;
-				if (shirt.y < -shirt.size) shirt.y = canvas.height;
-
 				ctx.save();
+				const nearLightning = lightnings.some((l) =>
+					l.segments.some(
+						(seg) =>
+							Math.abs(seg.x - shirt.x) < 100 && Math.abs(seg.y - shirt.y) < 100
+					)
+				);
+				ctx.shadowColor = nearLightning ? "#fc0c2b" : "#fff66d";
+				ctx.shadowBlur = nearLightning ? 30 : 20;
 				ctx.globalAlpha = shirt.opacity;
-				ctx.shadowColor = "#ff00ff";
-				ctx.shadowBlur = 20;
 				ctx.translate(shirt.x + shirt.size / 2, shirt.y + shirt.size / 2);
 				ctx.rotate(shirt.rotation);
 				ctx.drawImage(
@@ -169,6 +189,23 @@ export function GraphicalBackground() {
 					shirt.size
 				);
 				ctx.restore();
+			});
+
+			// Draw lightning
+			lightnings.forEach((l, idx) => {
+				ctx.strokeStyle = `rgba(252,12,43,${l.alpha})`;
+				ctx.lineWidth = 2;
+				ctx.shadowBlur = 20;
+				ctx.shadowColor = "#fc0c2b";
+				ctx.beginPath();
+				ctx.moveTo(l.segments[0].x, l.segments[0].y);
+				for (let i = 1; i < l.segments.length; i++) {
+					ctx.lineTo(l.segments[i].x, l.segments[i].y);
+				}
+				ctx.stroke();
+				l.life--;
+				l.alpha -= 0.1;
+				if (l.life <= 0) lightnings.splice(idx, 1);
 			});
 
 			animationFrameId = requestAnimationFrame(render);
