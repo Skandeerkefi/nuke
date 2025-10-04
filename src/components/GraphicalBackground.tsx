@@ -9,7 +9,6 @@ export function GraphicalBackground() {
 		const ctx = canvas.getContext("2d");
 		if (!ctx) return;
 
-		// Resize canvas
 		const resizeCanvas = () => {
 			canvas.width = window.innerWidth;
 			canvas.height = window.innerHeight;
@@ -17,7 +16,19 @@ export function GraphicalBackground() {
 		resizeCanvas();
 		window.addEventListener("resize", resizeCanvas);
 
-		// Particles (glowing embers)
+		// Load T-shirt images
+		const tshirtImages: HTMLImageElement[] = [];
+		const urls = [
+			"https://i.ibb.co/mCZHRLzX/Capture-d-cran-2025-10-04-171008-removebg-preview.png",
+			"https://i.ibb.co/LDxz9MzH/Capture-d-cran-2025-10-04-170801-removebg-preview.png",
+		];
+		urls.forEach((url) => {
+			const img = new Image();
+			img.src = url;
+			tshirtImages.push(img);
+		});
+
+		// Particles for glowing effect
 		interface Particle {
 			x: number;
 			y: number;
@@ -30,19 +41,19 @@ export function GraphicalBackground() {
 		}
 
 		const particles: Particle[] = [];
-		const particleCount = 60;
-		const colors = ["#ff0012", "#ff4500", "#ffd01f"]; // red-orange-yellow
+		const particleCount = 80;
+		const colors = ["#f50b2b", "#ee5b76", "#fffefc", "#120a2f"]; // Neon palette
 
 		for (let i = 0; i < particleCount; i++) {
 			const color = colors[Math.floor(Math.random() * colors.length)];
 			particles.push({
 				x: Math.random() * canvas.width,
 				y: Math.random() * canvas.height,
-				size: Math.random() * 3 + 1.5,
-				speedX: (Math.random() - 0.5) * 0.3,
-				speedY: (Math.random() - 0.5) * 0.3,
+				size: Math.random() * 3 + 2,
+				speedX: (Math.random() - 0.5) * 0.4,
+				speedY: (Math.random() - 0.5) * 0.4,
 				color,
-				alpha: Math.random() * 0.5 + 0.2,
+				alpha: Math.random() * 0.5 + 0.3,
 				pulse: Math.random() * Math.PI * 2,
 			});
 		}
@@ -58,18 +69,15 @@ export function GraphicalBackground() {
 			rotationSpeed: number;
 			layer: number;
 			opacity: number;
+			img: HTMLImageElement;
 		}
-
-		const tshirtImage = new Image();
-		tshirtImage.src =
-			"https://i.ibb.co/275b59dD/Capture-d-cran-2025-08-20-191534-removebg-preview.png";
 
 		const shirts: FloatingItem[] = [];
 		const shirtCount = 20;
-
 		for (let i = 0; i < shirtCount; i++) {
 			const layer = Math.floor(Math.random() * 3);
 			const baseSize = [60, 100, 140][layer];
+			const img = tshirtImages[Math.floor(Math.random() * tshirtImages.length)];
 			shirts.push({
 				x: Math.random() * canvas.width,
 				y: Math.random() * canvas.height,
@@ -77,9 +85,10 @@ export function GraphicalBackground() {
 				speedX: (Math.random() - 0.5) * (0.2 + layer * 0.1),
 				speedY: (Math.random() - 0.5) * (0.2 + layer * 0.1),
 				rotation: Math.random() * Math.PI * 2,
-				rotationSpeed: (Math.random() - 0.5) * 0.005,
+				rotationSpeed: (Math.random() - 0.5) * 0.01,
 				layer,
-				opacity: 0.3 + layer * 0.4,
+				opacity: 0.4 + layer * 0.3,
+				img,
 			});
 		}
 
@@ -89,7 +98,7 @@ export function GraphicalBackground() {
 		const render = () => {
 			time += 0.02;
 
-			// Dark background with subtle gradient
+			// Dark neon background
 			const gradient = ctx.createRadialGradient(
 				canvas.width / 2,
 				canvas.height / 2,
@@ -103,17 +112,17 @@ export function GraphicalBackground() {
 			ctx.fillStyle = gradient;
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-			// Light streaks
-			for (let i = 0; i < 3; i++) {
-				ctx.strokeStyle = `rgba(255,50,50,${0.02 + 0.03 * i})`;
+			// Neon streaks
+			for (let i = 0; i < 4; i++) {
+				ctx.strokeStyle = `rgba(255,${50 + i * 50},255,${0.03 + i * 0.02})`;
 				ctx.lineWidth = 1 + i;
 				ctx.beginPath();
-				ctx.moveTo((time * 30 + i * 300) % canvas.width, 0);
-				ctx.lineTo((time * 30 + i * 300 + 300) % canvas.width, canvas.height);
+				ctx.moveTo((time * 40 + i * 200) % canvas.width, 0);
+				ctx.lineTo((time * 40 + i * 200 + 400) % canvas.width, canvas.height);
 				ctx.stroke();
 			}
 
-			// Glowing particles
+			// Particles
 			particles.forEach((p) => {
 				p.pulse += 0.05;
 				const glow = Math.sin(p.pulse) * 0.5 + 0.5;
@@ -126,19 +135,19 @@ export function GraphicalBackground() {
 				if (p.y < 0) p.y = canvas.height;
 
 				ctx.beginPath();
-				ctx.arc(p.x, p.y, p.size + glow, 0, Math.PI * 2);
+				ctx.arc(p.x, p.y, p.size + glow * 1.5, 0, Math.PI * 2);
 				ctx.fillStyle = p.color;
-				ctx.shadowBlur = 10 * glow;
+				ctx.shadowBlur = 15 * glow;
 				ctx.shadowColor = p.color;
 				ctx.fill();
 			});
 
-			// Floating T-shirts with glow outline
+			// Floating T-shirts
 			shirts.forEach((shirt, idx) => {
 				shirt.x +=
-					shirt.speedX + Math.sin(time + idx) * 0.2 * (shirt.layer + 1);
+					shirt.speedX + Math.sin(time + idx) * 0.3 * (shirt.layer + 1);
 				shirt.y +=
-					shirt.speedY + Math.cos(time + idx) * 0.2 * (shirt.layer + 1);
+					shirt.speedY + Math.cos(time + idx) * 0.3 * (shirt.layer + 1);
 				shirt.rotation += shirt.rotationSpeed;
 
 				if (shirt.x > canvas.width) shirt.x = -shirt.size;
@@ -148,12 +157,12 @@ export function GraphicalBackground() {
 
 				ctx.save();
 				ctx.globalAlpha = shirt.opacity;
-				ctx.shadowColor = "#ff0012";
-				ctx.shadowBlur = 10;
+				ctx.shadowColor = "#ff00ff";
+				ctx.shadowBlur = 20;
 				ctx.translate(shirt.x + shirt.size / 2, shirt.y + shirt.size / 2);
 				ctx.rotate(shirt.rotation);
 				ctx.drawImage(
-					tshirtImage,
+					shirt.img,
 					-shirt.size / 2,
 					-shirt.size / 2,
 					shirt.size,
@@ -162,26 +171,14 @@ export function GraphicalBackground() {
 				ctx.restore();
 			});
 
-			// Optional: soft vignette
-			const vignette = ctx.createRadialGradient(
-				canvas.width / 2,
-				canvas.height / 2,
-				canvas.width / 4,
-				canvas.width / 2,
-				canvas.height / 2,
-				canvas.width / 1.2
-			);
-			vignette.addColorStop(0, "rgba(0,0,0,0)");
-			vignette.addColorStop(1, "rgba(0,0,0,0.6)");
-			ctx.fillStyle = vignette;
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
-
 			animationFrameId = requestAnimationFrame(render);
 		};
 
-		tshirtImage.onload = () => {
+		Promise.all(
+			tshirtImages.map((img) => new Promise((res) => (img.onload = res)))
+		).then(() => {
 			render();
-		};
+		});
 
 		return () => {
 			window.removeEventListener("resize", resizeCanvas);

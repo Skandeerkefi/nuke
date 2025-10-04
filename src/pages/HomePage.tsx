@@ -27,7 +27,7 @@ function HomePage() {
 
 					<div className='w-full max-w-xl aspect-video rounded-3xl overflow-hidden shadow-lg border-4 border-[#ffd01f]'>
 						<iframe
-							src='https://player.kick.com/Bomber'
+							src='https://player.kick.com/bomber58'
 							frameBorder='0'
 							allowFullScreen
 							title='Bomber Live Stream'
@@ -138,7 +138,11 @@ function HomePage() {
 							className='bg-[#ff0012] hover:bg-[#a8000f] text-[#fefffe] shadow-lg transition'
 							asChild
 						>
-							<a href='https://kick.com/Bomber' target='_blank' rel='noreferrer'>
+							<a
+								href='https://kick.com/Bomber'
+								target='_blank'
+								rel='noreferrer'
+							>
 								Watch Live on Kick
 							</a>
 						</Button>

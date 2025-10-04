@@ -19,7 +19,7 @@ export function Navbar() {
 	useEffect(() => {
 		const fetchLiveStatus = async () => {
 			try {
-				const res = await fetch("https://kick.com/api/v2/channels/Bomber");
+				const res = await fetch("https://kick.com/api/v2/channels/bomber58");
 				const data = await res.json();
 				if (data.livestream) {
 					setIsLive(true);
@@ -64,7 +64,7 @@ export function Navbar() {
 					{/* Logo */}
 					<Link to='/' className='flex items-center space-x-3 select-none'>
 						<img
-							src='https://i.ibb.co/KcLcdTJs/logo.png'
+							src='https://i.ibb.co/LDxz9MzH/Capture-d-cran-2025-10-04-170801-removebg-preview.png'
 							alt='Bomber Logo'
 							className='w-12 h-12 rounded-full border-2 border-[#ff0012] shadow-[0_0_15px_rgba(255,0,18,0.7)] object-cover'
 						/>
