@@ -102,7 +102,7 @@ function HomePage() {
 								<div className='text-center md:text-left'>
 									<h2 className='text-2xl font-extrabold text-white md:text-3xl'>
 										USE CODE{" "}
-										<span className='text-[#00ffc6]'>bomber58gamba</span>
+										<span className='text-[#00ffc6]'>bomber58</span>
 									</h2>
 									<div className='mt-2 space-y-1 text-sm text-white/90'>
 										<p>
@@ -124,7 +124,7 @@ function HomePage() {
 									</div>
 
 									<a
-										href='https://gamba.com/?c=Bomber58Gamba'
+										href='https://gamba.com/?c=Bomber58'
 										target='_blank'
 										rel='noopener noreferrer'
 										className='inline-block mt-4 px-5 py-2 bg-[#00ffc6] text-black font-bold rounded-xl shadow-md hover:scale-105 hover:bg-[#00d9a8] transition-transform text-sm'
