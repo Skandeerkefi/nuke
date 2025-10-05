@@ -12,9 +12,9 @@ export function Footer() {
 				<div className='grid grid-cols-1 gap-10 md:grid-cols-3'>
 					{/* About */}
 					<div>
-						<h3 className='mb-3 text-lg font-bold text-[#ffffff]'>Nuke</h3>
+						<h3 className='mb-3 text-lg font-bold text-[#ffffff]'>DegenBomber</h3>
 						<p className='text-sm text-[#ffffff]/70'>
-							Join Nuke&apos;s community for exciting gambling streams,
+							Join DegenBomber&apos;s community for exciting gambling streams,
 							giveaways, and more. Use affiliate code{" "}
 							<span className='font-semibold text-[#fc0c2b]'>DegenBomber</span>{" "}
 							on Chicken.
