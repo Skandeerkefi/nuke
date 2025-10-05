@@ -102,22 +102,22 @@ function HomePage() {
 								<div className='text-center md:text-left'>
 									<h2 className='text-2xl font-extrabold text-white md:text-3xl'>
 										USE CODE{" "}
-										<span className='text-[#fc0c2b]'>bomber58gamba</span>
+										<span className='text-[#00ffc6]'>bomber58gamba</span>
 									</h2>
 									<div className='mt-2 space-y-1 text-sm text-white/90'>
 										<p>
 											🎯{" "}
-											<span className='font-bold text-[#00ffc6]'>1000 XP</span>
+											<span className='font-bold text-[#ffffff]'>1000 XP</span>
 										</p>
 										<p>
 											💰{" "}
-											<span className='font-bold text-[#00ffc6]'>
+											<span className='font-bold text-[#ffffff]'>
 												1% Rakeback Boost
 											</span>
 										</p>
 										<p>
 											🔥{" "}
-											<span className='font-bold text-[#fc0c2b]'>
+											<span className='font-bold text-[#00ffc6]'>
 												75% Commission Share
 											</span>
 										</p>
