@@ -193,7 +193,7 @@ function HomePage() {
 					{/* Timeline Desktop */}
 					<div className='relative items-center justify-between hidden max-w-full gap-8 px-4 mx-auto select-none sm:flex'>
 						<div className='absolute top-1/2 left-8 right-8 h-1 bg-[#fff66d]/30 rounded-full -z-10'></div>
-						{["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+						{["Mon", "Tue", "Sun"].map((day) => (
 							<div
 								key={day}
 								className='flex flex-col items-center cursor-default group'
@@ -202,7 +202,7 @@ function HomePage() {
 									{day}
 								</div>
 								<p className='mt-3 text-sm text-[#ffffff]/70 select-text'>
-									6:00pm EST
+									8:30pm EST
 								</p>
 							</div>
 						))}
