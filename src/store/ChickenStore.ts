@@ -27,7 +27,7 @@ export const useChickenStore = create<ChickenStore>((set) => ({
 			set({ loading: true, error: null });
 
 			// Build query parameters
-			let url = "http://localhost:3000/api/chk";
+			let url = "https://nukedata-production.up.railway.app/api/chk";
 			const params: Record<string, any> = {};
 			if (minTime) params.minTime = minTime;
 			if (maxTime) params.maxTime = maxTime;

@@ -19,7 +19,7 @@ interface LeaderboardState {
 }
 
 const API_URL =
-	"http://localhost:3000/api/affiliates";
+	"https://nukedata-production.up.railway.app/api/affiliates";
 
 const getDateRange = (
 	period: LeaderboardPeriod
