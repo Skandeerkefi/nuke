@@ -79,6 +79,59 @@ function HomePage() {
 						</div>
 					</div>
 				</section>
+				{/* Gamba Promo Section */}
+				<section className='relative max-w-6xl px-6 py-16 mx-auto'>
+					<div className='relative rounded-3xl overflow-hidden shadow-lg border-4 border-[#00ffc6]'>
+						<div className='absolute inset-0 bg-gradient-to-br from-[#0c0b30]/80 via-[#0d0033]/70 to-[#001a1a]/80' />
+						<div className='relative z-10 flex flex-col items-center justify-between gap-8 p-8 md:flex-row'>
+							{/* Text Section */}
+							<div className='space-y-4 text-center md:text-left'>
+								<h2 className='text-4xl md:text-5xl font-extrabold text-[#00ffc6]'>
+									USE CODE <span className='text-[#fc0c2b]'>Bomber58</span>
+								</h2>
+								<p className='text-lg font-semibold text-white md:text-xl'>
+									During Signup on <span className='text-[#00ffc6]'>Gamba</span>
+								</p>
+
+								<ul className='mt-6 space-y-2 text-base text-white/90 md:text-lg'>
+									<li>
+										🎯 <span className='font-bold text-[#00ffc6]'>1000 XP</span>
+									</li>
+									<li>
+										💰{" "}
+										<span className='font-bold text-[#00ffc6]'>
+											1% Rakeback Boost
+										</span>
+									</li>
+									<li>
+										🔥{" "}
+										<span className='font-bold text-[#fc0c2b]'>
+											75% Commission Share
+										</span>
+									</li>
+								</ul>
+
+								<a
+									href='https://gamba.com/?c=Bomber58Gamba'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='inline-block mt-6 px-8 py-3 bg-[#00ffc6] text-black font-extrabold rounded-xl shadow-lg hover:scale-105 hover:bg-[#00d9a8] transition-transform'
+								>
+									Sign Up
+								</a>
+							</div>
+
+							{/* Image */}
+							<div className='w-full max-w-md md:max-w-lg'>
+								<img
+									src='https://static.casino.guru/pict/820559/7365_500x500_dark.svg?timestamp=1715744877000&imageDataId=871262' // replace with the correct path or link
+									alt='Gamba Promo'
+									className='w-full h-auto shadow-xl rounded-2xl'
+								/>
+							</div>
+						</div>
+					</div>
+				</section>
 
 				{/* Features Section */}
 				<section className='max-w-6xl px-6 py-16 mx-auto'>
