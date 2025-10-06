@@ -47,14 +47,14 @@ function HomePage() {
 					</div>
 				</section>
 
-				{/* Promo Banners Side by Side (Smaller + Aligned + Chicken Button) */}
+				{/* Promo Banners Section */}
 				<section className='relative max-w-6xl px-6 py-12 mx-auto'>
+					{/* Top 2 Promos Side by Side */}
 					<div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
 						{/* Promo 1 - Chicken.gg */}
 						<div className='relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#fc0c2b]'>
 							<div className='absolute inset-0 bg-gradient-to-br from-[#0c0b30]/80 via-[#1a0011]/70 to-[#0c0b30]/80' />
 							<div className='relative z-10 flex flex-col items-center justify-between gap-4 p-6 md:flex-row'>
-								{/* Text */}
 								<div className='text-center md:text-left'>
 									<h2 className='text-2xl md:text-3xl font-extrabold text-[#fc0c2b]'>
 										5 FREE CASES
@@ -72,7 +72,6 @@ function HomePage() {
 										Use code:{" "}
 										<span className='text-[#fc0c2b]'>DEGENBOMBER</span>
 									</p>
-
 									<a
 										href='https://chicken.gg/r/DegenBomber'
 										target='_blank'
@@ -82,8 +81,6 @@ function HomePage() {
 										Play Now
 									</a>
 								</div>
-
-								{/* Image */}
 								<div className='w-[160px] md:w-[200px]'>
 									<img
 										src='https://static-cdn.jtvnw.net/jtv_user_pictures/e3f85f5e-1002-473d-bce4-2f354edb48d8-profile_banner-480.png'
@@ -98,11 +95,9 @@ function HomePage() {
 						<div className='relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#00ffc6]'>
 							<div className='absolute inset-0 bg-gradient-to-br from-[#0c0b30]/90 via-[#0d0033]/70 to-[#001a1a]/90' />
 							<div className='relative z-10 flex flex-col items-center justify-between gap-4 p-6 md:flex-row'>
-								{/* Text */}
 								<div className='text-center md:text-left'>
 									<h2 className='text-2xl font-extrabold text-white md:text-3xl'>
-										USE CODE{" "}
-										<span className='text-[#00ffc6]'>bomber58</span>
+										USE CODE <span className='text-[#00ffc6]'>bomber58</span>
 									</h2>
 									<div className='mt-2 space-y-1 text-sm text-white/90'>
 										<p>
@@ -122,7 +117,6 @@ function HomePage() {
 											</span>
 										</p>
 									</div>
-
 									<a
 										href='https://gamba.com/?c=Bomber58'
 										target='_blank'
@@ -132,8 +126,6 @@ function HomePage() {
 										Sign Up
 									</a>
 								</div>
-
-								{/* Image */}
 								<div className='w-[160px] md:w-[200px]'>
 									<img
 										src='https://static.casino.guru/pict/820559/7365_500x500_dark.svg?timestamp=1715744877000&imageDataId=871262'
@@ -141,6 +133,53 @@ function HomePage() {
 										className='object-cover w-full h-auto shadow-md rounded-xl'
 									/>
 								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* BlockBet Promo - Full Width & Big */}
+					<div className='relative mt-10 rounded-3xl overflow-hidden shadow-2xl border-2 border-[#7cffb2]'>
+						<div className='absolute inset-0 bg-gradient-to-br from-[#001a1a]/90 via-[#002b2b]/70 to-[#000000]/90' />
+						<div className='relative z-10 flex flex-col-reverse items-center justify-between gap-10 p-8 md:flex-row md:gap-16'>
+							{/* Text Section */}
+							<div className='max-w-xl text-center md:text-left'>
+								<h2 className='text-4xl md:text-5xl font-extrabold text-[#7cffb2] leading-tight'>
+									BlockBet Exclusive Offer
+								</h2>
+								<p className='mt-4 text-lg text-[#fff66d] font-semibold'>
+									Join the future of decentralized betting and claim{" "}
+									<span className='text-[#7cffb2]'>exclusive rewards</span>!
+								</p>
+								<p className='mt-3 text-base text-[#ffffff]/80'>
+									Use referral:{" "}
+									<span className='font-bold text-[#7cffb2]'>DegenBomber</span>
+								</p>
+
+								<a
+									href='https://www.blockbet.gg/share/v6/DegenBomber'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='inline-block mt-6 px-8 py-3 bg-[#7cffb2] text-black font-bold rounded-xl shadow-lg hover:scale-105 hover:bg-[#6af0a2] transition-transform text-lg'
+								>
+									Join Now
+								</a>
+							</div>
+
+							{/* Video & Image Side */}
+							<div className='w-full max-w-lg'>
+								<div className='rounded-2xl overflow-hidden shadow-lg border border-[#7cffb2]/50 mb-4'>
+									<iframe
+										src='https://streamable.com/e/owx3ni?autoplay=1&muted=1'
+										allow='autoplay; fullscreen'
+										className='w-full aspect-video rounded-2xl'
+										title='BlockBet Promo Video'
+									></iframe>
+								</div>
+								<img
+									src='https://i.ibb.co/jkXpdF2Q/Capture-d-cran-2025-10-06-193113.png'
+									alt='BlockBet Promo'
+									className='w-full h-auto rounded-2xl shadow-md border border-[#7cffb2]/50'
+								/>
 							</div>
 						</div>
 					</div>
