@@ -169,7 +169,7 @@ function HomePage() {
 							<div className='w-full max-w-lg'>
 								<div className='rounded-2xl overflow-hidden shadow-lg border border-[#7cffb2]/50 mb-4'>
 									<iframe
-										src='https://streamable.com/e/owx3ni?autoplay=1&muted=1'
+										src='https://embed.api.video/vod/vi4jLMHXxjHNDC9ef5P2pYjb'
 										allow='autoplay; fullscreen'
 										className='w-full aspect-video rounded-2xl'
 										title='BlockBet Promo Video'
