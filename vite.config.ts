@@ -13,7 +13,7 @@ export default defineConfig({
 	server: {
 		proxy: {
 			"/api": {
-				target: "https://misterteedata-production.up.railway.app",
+				target: "https://nukedata-production.up.railway.app",
 				changeOrigin: true,
 				// ❌ remove this line or fix it
 				// rewrite: (path) => path.replace(/^\/api/, ""),

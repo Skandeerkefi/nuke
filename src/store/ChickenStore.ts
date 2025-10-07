@@ -1,50 +1,27 @@
+// store/referralStore.js
 import { create } from "zustand";
 import axios from "axios";
 
-interface ChickenPlayer {
-	userId: string;
-	username: string;
-	xp: number;
-	totalWager?: number;
-	totalDeposits?: number;
-	totalEarnings?: number;
-}
-
-interface ChickenStore {
-	leaderboard: ChickenPlayer[];
-	loading: boolean;
-	error: string | null;
-	fetchLeaderboard: (minTime?: number, maxTime?: number) => Promise<void>;
-}
-
-export const useChickenStore = create<ChickenStore>((set) => ({
-	leaderboard: [],
+export const useReferralStore = create((set) => ({
+	referrals: [], // array of { username, xp }
 	loading: false,
 	error: null,
 
-	fetchLeaderboard: async (minTime?: number, maxTime?: number) => {
+	fetchReferrals: async () => {
+		set({ loading: true, error: null });
 		try {
-			set({ loading: true, error: null });
-
-			// Build query parameters
-			let url = "https://nukedata-production.up.railway.app/api/chk";
-			const params: Record<string, any> = {};
-			if (minTime) params.minTime = minTime;
-			if (maxTime) params.maxTime = maxTime;
-
-			const { data } = await axios.get(url, { params });
-
-			// XP-based sorting just in case
-			const sortedData = data.sort(
-				(a: ChickenPlayer, b: ChickenPlayer) => b.xp - a.xp
-			);
-
-			set({ leaderboard: sortedData, loading: false });
-		} catch (err: any) {
-			set({
-				error: err.response?.data?.error || "Failed to fetch leaderboard",
-				loading: false,
-			});
+			const { data } = await axios.get(
+				"https://nukedata-production.up.railway.app/api/referrals"
+			); // your backend endpoint
+			// Map only username and xp
+			const mapped = data.map((ref) => ({
+				username: ref.username,
+				xp: ref.xp,
+			}));
+			set({ referrals: mapped, loading: false });
+		} catch (err) {
+			set({ error: err.message, loading: false });
+			console.error("❌ Error fetching referrals from store:", err.message);
 		}
 	},
 }));
