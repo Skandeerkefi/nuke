@@ -4,10 +4,9 @@ import GraphicalBackground from "@/components/GraphicalBackground";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const prizeMap = [100, 50, 25, 15, 10]; // Top 5 prizes
-
 const ChickenPage: React.FC = () => {
-	const { referrals, loading, error, fetchReferrals } = useReferralStore();
+	const { referrals, loading, error, fetchReferrals, prizeMap } =
+		useReferralStore();
 
 	useEffect(() => {
 		fetchReferrals();
@@ -17,51 +16,50 @@ const ChickenPage: React.FC = () => {
 	const sortedReferrals = [...referrals].sort((a, b) => b.xp - a.xp);
 
 	return (
-		<div className='relative min-h-screen'>
+		<div className='relative flex flex-col min-h-screen'>
 			<GraphicalBackground />
 			<Navbar />
 
-			<main className='max-w-5xl p-4 mx-auto'>
-				<h1 className='mb-6 text-3xl font-bold'>
+			<main className='flex-grow max-w-5xl p-6 mx-auto'>
+				<h1 className='mb-8 text-3xl font-bold text-center text-yellow-400'>
 					Biweekly Chicken Leaderboard
 				</h1>
 
-				{loading && <p>Loading leaderboard...</p>}
-				{error && <p className='text-red-500'>Error: {error}</p>}
+				{loading && (
+					<p className='text-center text-white'>Loading leaderboard...</p>
+				)}
+				{error && <p className='text-center text-red-500'>Error: {error}</p>}
 
 				{!loading && !error && (
-					<table className='w-full overflow-hidden bg-white border-collapse rounded-lg shadow-md'>
-						<thead className='bg-gray-200'>
-							<tr>
-								<th className='px-4 py-2 text-left'>Rank</th>
-								<th className='px-4 py-2 text-left'>Player</th>
-								<th className='px-4 py-2 text-left'>XP</th>
-								<th className='px-4 py-2 text-left'>Prize</th>
-							</tr>
-						</thead>
-						<tbody>
-							{sortedReferrals.map((referral, index) => (
-								<tr
-									key={referral.userId}
-									className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
-								>
-									<td className='px-4 py-2'>{index + 1}</td>
-									<td className='flex items-center gap-2 px-4 py-2'>
-										<img
-											src={`https://static.chicken.gg/avatars-default/004.jpg`} // Replace with referral.imageUrl if you store it
-											alt={referral.displayName}
-											className='w-6 h-6 rounded-full'
-										/>
+					<div className='space-y-4'>
+						{sortedReferrals.map((referral, index) => (
+							<div
+								key={referral.userId}
+								className={`flex justify-between items-center p-4 rounded-xl shadow-lg transition-transform transform hover:scale-105 ${
+									index % 2 === 0 ? "bg-red-500" : "bg-red-400"
+								}`}
+							>
+								<div className='flex items-center space-x-4'>
+									<span className='text-lg font-bold text-white'>
+										{index + 1}
+									</span>
+									
+									<span className='font-medium text-white'>
 										{referral.displayName}
-									</td>
-									<td className='px-4 py-2'>{referral.xp}</td>
-									<td className='px-4 py-2'>
-										{index < prizeMap.length ? prizeMap[index] : "-"}
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
+									</span>
+								</div>
+
+								<div className='flex items-center space-x-6'>
+									<span className='font-semibold text-white'>
+										{referral.xp} XP
+									</span>
+									<span className='px-3 py-1 text-sm font-bold text-yellow-800 bg-yellow-200 rounded-full'>
+										{index < prizeMap.length ? prizeMap[index] : "-"}c
+									</span>
+								</div>
+							</div>
+						))}
+					</div>
 				)}
 			</main>
 
