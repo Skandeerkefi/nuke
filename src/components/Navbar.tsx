@@ -49,11 +49,11 @@ export function Navbar() {
 
 	const menuItems = [
 		{ path: "/", name: "Home", icon: <Dices className='w-5 h-5' /> },
-		{
-			path: "/chicken",
-			name: "Leaderboard",
-			icon: <Crown className='w-5 h-5' />,
-		},
+		// {
+		// 	path: "/chicken",
+		// 	name: "Leaderboard",
+		// 	icon: <Crown className='w-5 h-5' />,
+		// },
 		{
 			path: "/slot-calls",
 			name: "Slot Calls",
