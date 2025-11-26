@@ -64,6 +64,11 @@ export function Navbar() {
 			name: "Giveaways",
 			icon: <Gift className='w-5 h-5' />,
 		},
+		{
+			path: "/csgo",
+			name: "csgo",
+			icon: <Gift className='w-5 h-5' />,
+		},
 	];
 
 	return (

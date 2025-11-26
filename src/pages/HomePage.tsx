@@ -48,142 +48,59 @@ function HomePage() {
 				</section>
 
 				{/* Promo Banners Section */}
-				<section className='relative max-w-6xl px-6 py-12 mx-auto'>
-					{/* Top 2 Promos Side by Side */}
-					<div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
-						{/* Promo 1 - Chicken.gg */}
-						<div className='relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#fc0c2b]'>
-							<div className='absolute inset-0 bg-gradient-to-br from-[#0c0b30]/80 via-[#1a0011]/70 to-[#0c0b30]/80' />
-							<div className='relative z-10 flex flex-col items-center justify-between gap-4 p-6 md:flex-row'>
-								<div className='text-center md:text-left'>
-									<h2 className='text-2xl md:text-3xl font-extrabold text-[#fc0c2b]'>
-										5 FREE CASES
-									</h2>
-									<p className='mt-1 text-base font-semibold text-[#fff66d]'>
-										Worth up to <span className='text-[#fc0c2b]'>10,000</span>
-									</p>
-									<p className='mt-2 text-xs text-[#ffffff]/80'>
-										18+ T&C&apos;s Apply
-									</p>
-									<p className='mt-1 text-base font-semibold text-[#fff66d]'>
-										lb <span className='text-[#fc0c2b]'>200c</span>
-									</p>
-									<p className='mt-2 font-bold text-[#ffffff]'>
-										Use code:{" "}
-										<span className='text-[#fc0c2b]'>DEGENBOMBER</span>
-									</p>
-									<a
-										href='https://chicken.gg/r/DegenBomber'
-										target='_blank'
-										rel='noopener noreferrer'
-										className='inline-block mt-4 px-5 py-2 bg-[#fc0c2b] text-black font-bold rounded-xl shadow-md hover:scale-105 hover:bg-[#ff2e4d] transition-transform text-sm'
-									>
-										Play Now
-									</a>
-								</div>
-								<div className='w-[160px] md:w-[200px]'>
-									<img
-										src='https://static-cdn.jtvnw.net/jtv_user_pictures/e3f85f5e-1002-473d-bce4-2f354edb48d8-profile_banner-480.png'
-										alt='Chicken Promo'
-										className='object-cover w-full h-auto shadow-md rounded-xl'
-									/>
-								</div>
-							</div>
-						</div>
+<section className='relative max-w-6xl px-6 py-12 mx-auto'>
+	<div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+		{/* Gamba */}
+		{/* Gamba */}
+<div className='relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#00ffc6] p-6 flex flex-col items-center justify-between'>
+    {/* Add the image here */}
+    <img
+        src='https://static.casino.guru/pict/820559/7365_500x500_dark.svg?timestamp=1715744877000&imageDataId=871262'
+        alt='Gamba Promo'
+        className='w-32 h-32 object-contain mb-4'
+    />
 
-						{/* Promo 2 - Gamba */}
-						<div className='relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#00ffc6]'>
-							<div className='absolute inset-0 bg-gradient-to-br from-[#0c0b30]/90 via-[#0d0033]/70 to-[#001a1a]/90' />
-							<div className='relative z-10 flex flex-col items-center justify-between gap-4 p-6 md:flex-row'>
-								<div className='text-center md:text-left'>
-									<h2 className='text-2xl font-extrabold text-white md:text-3xl'>
-										USE CODE <span className='text-[#00ffc6]'>bomber58</span>
-									</h2>
-									<div className='mt-2 space-y-1 text-sm text-white/90'>
-										<p>
-											🎯{" "}
-											<span className='font-bold text-[#ffffff]'>1000 XP</span>
-										</p>
-										<p>
-											💰{" "}
-											<span className='font-bold text-[#ffffff]'>
-												1% Rakeback Boost
-											</span>
-										</p>
-										<p>
-											🔥{" "}
-											<span className='font-bold text-[#00ffc6]'>
-												75% Commission Share
-											</span>
-										</p>
-									</div>
-									<a
-										href='https://gamba.com/?c=Bomber58'
-										target='_blank'
-										rel='noopener noreferrer'
-										className='inline-block mt-4 px-5 py-2 bg-[#00ffc6] text-black font-bold rounded-xl shadow-md hover:scale-105 hover:bg-[#00d9a8] transition-transform text-sm'
-									>
-										Sign Up
-									</a>
-								</div>
-								<div className='w-[160px] md:w-[200px]'>
-									<img
-										src='https://static.casino.guru/pict/820559/7365_500x500_dark.svg?timestamp=1715744877000&imageDataId=871262'
-										alt='Gamba Promo Banner'
-										className='object-cover w-full h-auto shadow-md rounded-xl'
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
+    <h2 className='text-2xl font-extrabold text-white text-center'>
+        USE CODE <span className='text-[#00ffc6]'>bomber58</span>
+    </h2>
+    <div className='mt-3 space-y-1 text-sm text-white/90 text-center'>
+        <p>🎯 <span className='font-bold'>1000 XP</span></p>
+        <p>💰 <span className='font-bold'>1% Rakeback Boost</span></p>
+        <p>🔥 <span className='font-bold text-[#00ffc6]'>75% Commission Share</span></p>
+    </div>
+    <a
+        href='https://gamba.com/?c=Bomber58'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='mt-4 px-5 py-2 bg-[#00ffc6] text-black font-bold rounded-xl shadow-md hover:scale-105 hover:bg-[#00d9a8] transition-transform text-sm'
+    >
+        Sign Up
+    </a>
+</div>
 
-					{/* BlockBet Promo - Full Width & Big */}
-					<div className='relative mt-10 rounded-3xl overflow-hidden shadow-2xl border-2 border-[#7cffb2]'>
-						<div className='absolute inset-0 bg-gradient-to-br from-[#001a1a]/90 via-[#002b2b]/70 to-[#000000]/90' />
-						<div className='relative z-10 flex flex-col-reverse items-center justify-between gap-10 p-8 md:flex-row md:gap-16'>
-							{/* Text Section */}
-							<div className='max-w-xl text-center md:text-left'>
-								<h2 className='text-4xl md:text-5xl font-extrabold text-[#7cffb2] leading-tight'>
-									BlockBet Exclusive Offer
-								</h2>
-								<p className='mt-4 text-lg text-[#fff66d] font-semibold'>
-									Join the future of decentralized betting and claim{" "}
-									<span className='text-[#7cffb2]'>exclusive rewards</span>!
-								</p>
-								<p className='mt-3 text-base text-[#ffffff]/80'>
-									Use referral:{" "}
-									<span className='font-bold text-[#7cffb2]'>DegenBomber</span>
-								</p>
 
-								<a
-									href='https://www.blockbet.gg/share/v6/DegenBomber'
-									target='_blank'
-									rel='noopener noreferrer'
-									className='inline-block mt-6 px-8 py-3 bg-[#7cffb2] text-black font-bold rounded-xl shadow-lg hover:scale-105 hover:bg-[#6af0a2] transition-transform text-lg'
-								>
-									Join Now
-								</a>
-							</div>
-
-							{/* Video & Image Side */}
-							<div className='w-full max-w-lg'>
-								<div className='rounded-2xl overflow-hidden shadow-lg border border-[#7cffb2]/50 mb-4'>
-									<iframe
-										src='https://embed.api.video/vod/vi4jLMHXxjHNDC9ef5P2pYjb'
-										allow='autoplay; fullscreen'
-										className='w-full aspect-video rounded-2xl'
-										title='BlockBet Promo Video'
-									></iframe>
-								</div>
-								<img
-									src='https://i.ibb.co/jkXpdF2Q/Capture-d-cran-2025-10-06-193113.png'
-									alt='BlockBet Promo'
-									className='w-full h-auto rounded-2xl shadow-md border border-[#7cffb2]/50'
-								/>
-							</div>
-						</div>
-					</div>
-				</section>
+		{/* CSGOWin */}
+		<div className='relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#fc0c2b] p-6 flex flex-col items-center justify-between'>
+			<img
+				src='https://i.ibb.co/WWC545nM/csgowin-affiliate-cases.png'
+				alt='CSGOWin Promo'
+				className='w-32 h-32 object-contain mb-4'
+			/>
+			<h2 className='text-xl font-bold text-[#fc0c2b] text-center'>
+				3 FREE CASES
+			</h2>
+			<p className='mt-2 text-white font-semibold text-center'>Use code: DEGENBOMBER</p>
+			<a
+				href='https://csgowin.com/r/degenbomber'
+				target='_blank'
+				rel='noopener noreferrer'
+				className='mt-4 px-5 py-2 bg-[#fc0c2b] text-black font-bold rounded-xl shadow-md hover:scale-105 transition-transform text-sm'
+			>
+				Play Now
+			</a>
+		</div>
+	</div>
+</section>
 
 				{/* Features Section */}
 				<section className='max-w-6xl px-6 py-16 mx-auto'>
