@@ -17,7 +17,7 @@ export function Footer() {
 							Join DegenBomber&apos;s community for exciting gambling streams,
 							giveaways, and more. Use affiliate code{" "}
 							<span className='font-semibold text-[#fc0c2b]'>DegenBomber</span>{" "}
-							on Chicken.
+							on CSGOWIN.
 						</p>
 					</div>
 
@@ -27,7 +27,7 @@ export function Footer() {
 						<div className='grid grid-cols-2 gap-2'>
 							{[
 								{ to: "/", label: "Home" },
-								{ to: "/chicken", label: "Leaderboard" },
+								{ to: "/csgo", label: "Leaderboard" },
 								{ to: "/", label: "Terms & Conditions" },
 								{ to: "/", label: "Privacy Policy" },
 							].map(({ to, label }) => (
